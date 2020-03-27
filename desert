@@ -1,0 +1,11 @@
+# https://codecombat.com/play/level/clash-of-clones?
+# You'll need good strategy to win this one!
+# Your clone will have the same equipment you have!
+# But, they're not very skilled at using special powers.
+while True:
+    enemy = hero.findNearestEnemy()
+    if enemy and enemy.type != "sand-yak":
+        if hero.canCast("chain-lightning", enemy):
+            hero.cast("chain-lightning", enemy)
+        else:
+            hero.attack(enemy)
