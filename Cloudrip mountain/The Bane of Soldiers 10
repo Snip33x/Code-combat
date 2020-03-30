@@ -1,0 +1,18 @@
+# https://codecombat.com/play/level/the-bane-of-soldiers?
+# Robobombs explode when they are destroyed or touch an enemy.
+# Split up your soldiers so that they don't all get exploded together.
+
+while True:
+    enemies = hero.findEnemies()
+    enemy = hero.findNearest(enemies)
+    friends = hero.findFriends()
+    # Send the first soldier of the friends array towards the enemy.
+    for b in range(len(friends)):
+        kupa = friends[b]
+        hero.command(kupa, "move", {"x":66, "y": 38 })
+    # i in range(1, n) starts the index at the second element!
+    for i in range(1, len(friends)):
+        friend = friends[i]
+        hero.command(friend, "move", {"x":15, "y": 38 })
+        # Command the remaining soldiers to run away!
+        
