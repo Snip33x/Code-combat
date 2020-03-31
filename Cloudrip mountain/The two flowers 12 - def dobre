@@ -1,0 +1,33 @@
+# https://codecombat.com/play/level/the-two-flowers?
+# If the peasant is damaged, the flowers will shrink!
+
+def summonSoldiers():
+    if hero.gold >= hero.costOf("soldier"):
+        hero.summon("soldier")
+
+# Define the function: commandSoldiers
+def commandSoldiers():
+    for soldier in hero.findByType("soldier"):
+        enemy = soldier.findNearestEnemy()
+        if enemy:
+            hero.command(soldier, "attack", enemy)
+          
+# Define the function: pickUpNearestCoin
+def pickUpNearestCoin():
+    coin = hero.findNearestItem()
+    if coin:
+        hero.move(coin.pos)
+
+peasant = hero.findByType("peasant")[0]
+
+def blysk():
+    enemy = hero.findNearestEnemy()
+    if enemy:
+        if hero.canCast("chain-lightning", enemy):
+            hero.cast("chain-lightning", enemy)
+
+while True:
+    summonSoldiers()
+    commandSoldiers()
+    pickUpNearestCoin()
+    blysk()
