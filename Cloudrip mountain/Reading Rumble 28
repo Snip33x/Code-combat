@@ -1,0 +1,17 @@
+# https://codecombat.com/play/level/reading-rumble?
+# Defeat all incoming ogres.
+
+while True:
+    # Find the nearest enemy.
+    enemy = hero.findNearestEnemy()
+    
+    # If there is an enemy, and it is a "brawler":
+    if enemy and enemy.type == "brawler":
+        hero.say(enemy.id.toUpperCase())
+    elif enemy:
+        hero.attack(enemy)
+        # Then say its name (.id) in UPPERCASE.
+        
+    # For other enemies, just fight.
+    
+    pass
